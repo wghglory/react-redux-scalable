@@ -66,9 +66,7 @@
     ],
     "env": {
       "production": {
-        "only": [
-          "app"
-        ],
+        "only": ["app"],
         "plugins": [
           "transform-react-remove-prop-types",
           "transform-react-constant-elements",
@@ -86,10 +84,7 @@
       "mocha": true,
       "es6": true
     },
-    "plugins": [
-      "react",
-      "jsx-a11y"
-    ],
+    "plugins": ["react", "jsx-a11y"],
     "parserOptions": {
       "ecmaVersion": 6,
       "sourceType": "module",
@@ -98,14 +93,8 @@
       }
     },
     "rules": {
-      "arrow-body-style": [
-        2,
-        "as-needed"
-      ],
-      "comma-dangle": [
-        2,
-        "always-multiline"
-      ],
+      "arrow-body-style": [2, "as-needed"],
+      "comma-dangle": [0, "always-multiline"],
       "import/imports-first": 0,
       "import/newline-after-import": 0,
       "import/no-extraneous-dependencies": 0,
@@ -154,9 +143,7 @@
       "selector-pseudo-class-no-unknown": [
         true,
         {
-          "ignorePseudoClasses": [
-            "global"
-          ]
+          "ignorePseudoClasses": ["global"]
         }
       ],
       "indentation": 2
@@ -164,20 +151,8 @@
   },
   "dllPlugin": {
     "path": "node_modules/react-boilerplate-dlls",
-    "exclude": [
-      "chalk",
-      "compression",
-      "cross-env",
-      "express",
-      "ip",
-      "minimist",
-      "sanitize.css"
-    ],
-    "include": [
-      "core-js",
-      "lodash",
-      "eventsource-polyfill"
-    ]
+    "exclude": ["chalk", "compression", "cross-env", "express", "ip", "minimist", "sanitize.css"],
+    "include": ["core-js", "lodash", "eventsource-polyfill"]
   },
   "dependencies": {
     "babel-polyfill": "6.13.0",
