@@ -5,9 +5,25 @@ We want to display Navigation component in HomePage.
 Step 1: Add some thing to be displayed in Navigation Presentational Component.
 
 ```jsx
-function Navigation() {
-  return <div className={styles.navigation}>this is navigation component</div>;
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import styles from './styles.css';
+
+function Navigation({ topics }) {
+  return <div className={styles.navigation}>We have {topics.length} topics</div>;
 }
+
+Navigation.propTypes = {
+  topics: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    })
+  ).isRequired
+};
+
+export default Navigation;
 ```
 
 Step 2: Embed Presentational into another "Presentational Container"...
@@ -105,4 +121,47 @@ export default function createRoutes(store) {
     }
   ];
 }
+```
+
+---
+
+We can add some initial State in the reducer so we have some data to display.
+
+```javascript
+/*
+ *
+ * NavigationContainer reducer
+ *
+ */
+
+import { fromJS } from 'immutable';
+import { DEFAULT_ACTION } from './constants';
+
+const initialState = fromJS({
+  topics: [
+    {
+      name: 'libraries',
+      description: 'links to useful open source libraries'
+    },
+    {
+      name: 'apps',
+      description: 'links to new and exciting apps'
+    },
+    {
+      name: 'news',
+      description: 'links to programming related news articles'
+    }
+  ]
+});
+
+function navigationContainerReducer(state = initialState, action) {
+  switch (action.type) {
+    case DEFAULT_ACTION:
+      return state;
+    default:
+      return state;
+  }
+}
+
+export default navigationContainerReducer;
 ```
