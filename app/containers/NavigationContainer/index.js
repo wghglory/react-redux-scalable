@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import selectNavigationContainer from './selectors';
 import Navigation from '../../components/Navigation/index';
 import PropTypes from 'prop-types';
-import { requestTopics, selectTopic } from './actions';
+import { requestTopics, selectTopic, toggleDrawer } from './actions';
 
 /* eslint-disable react/prefer-stateless-function */
 export class NavigationContainer extends React.Component {
@@ -30,12 +30,17 @@ function mapDispatchToProps(dispatch) {
     },
     selectTopic(topic) {
       dispatch(selectTopic(topic));
+    },
+    toggleDrawer() {
+      dispatch(toggleDrawer());
     }
   };
 }
 
 NavigationContainer.propTypes = {
-  requestTopics: PropTypes.func.isRequired
+  requestTopics: PropTypes.func.isRequired,
+  selectTopic: PropTypes.func.isRequired,
+  toggleDrawer: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationContainer);
