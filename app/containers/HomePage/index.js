@@ -10,8 +10,8 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import NavigationContainer from '../NavigationContainer/index';
-import LinkListContainer from '../LinkListContainer/index';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.Component {
@@ -19,8 +19,12 @@ export default class HomePage extends React.Component {
     return (
       <div>
         <NavigationContainer />
-        <LinkListContainer />
+        {this.props.children}
       </div>
     );
   }
 }
+
+HomePage.propTypes = {
+  children: PropTypes.element
+};
