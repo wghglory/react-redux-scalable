@@ -25,7 +25,9 @@ function* pushTopic(action) {
 
 function* selectDefaultTopic() {
   const state = yield select(selectNavigationContainer());
-  if (!state.selectedTopic) {
+  // 当没有选中 topic 且 访问 / 时候再跳转到第一个 topic。
+  // routerLocation 看 navigationContainerReducer 的 @@router/LOCATION_CHANGE
+  if (!state.selectedTopic && state.routerLocation === '/') {
     yield pushTopic({
       topic: state.topics[0]
     });
