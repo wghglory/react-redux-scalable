@@ -5,15 +5,13 @@
  */
 
 import { fromJS } from 'immutable';
-import {
-  DEFAULT_ACTION,
-} from './constants';
+import { ADD_LINK } from './constants';
 
 const initialState = fromJS({});
 
 function linkFormContainerReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
+    case ADD_LINK:
       return state;
     default:
       return state;

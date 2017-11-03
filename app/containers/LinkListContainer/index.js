@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import selectLinkListContainer from './selectors';
 import LinkList from '../../components/LinkList/index';
-import { requestLinks } from './actions';
+import { requestLinks, startAdd } from './actions';
 
 /* eslint-disable react/prefer-stateless-function */
 export class LinkListContainer extends React.Component {
@@ -39,6 +39,9 @@ function mapDispatchToProps(dispatch) {
   return {
     requestLinks(topicName) {
       dispatch(requestLinks(topicName));
+    },
+    startAdd(topicName) {
+      dispatch(startAdd(topicName));
     }
   };
 }
